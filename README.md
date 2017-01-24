@@ -19,6 +19,8 @@ $ nobreak [string - DOMAIN OR IP] [int - NUM OF PING CALLS] [int - NUM OF PINGS 
 $ nobreak google.com 6 3 600 10
 ```
 
+#### Logs
+
 ```sh
 $ cat /var/log/nobreak.log
 2:64 bytes from vl-in-f101.1e100.net (74.125.141.101): icmp_seq=1 ttl=42 time=156 ms
@@ -37,6 +39,7 @@ A ENERGIA CAIU!
 SLEEP DE 10 MINUTOS
 ```
 
+#### Logs
 ```sh
 $ cat /var/log/nobreak-fail.log
 A ENERGIA CAIU!
