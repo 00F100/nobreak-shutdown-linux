@@ -2,7 +2,7 @@
 
 ## Prerequisite
 
-It is required that the server be connected to a nobreak
+It is required that server be connected to nobreak
 
 ## Install
 
@@ -11,7 +11,13 @@ $ sudo curl -L "https://raw.githubusercontent.com/00F100/nobreak-shutdown-linux/
 $ sudo chmod +x /usr/local/bin/nobreak
 ```
 
-## usage
+## Configure on Crontab
+
+```sh
+*/2 * * * * root nobreak google.com 6 3 600 10
+```
+
+## Usage
 
 ```sh
 $ nobreak [string - DOMAIN OR IP] [int - NUM OF PING CALLS] [int - NUM OF PINGS CALL ERROR LOG] [int - TIME IN SECONDS TO DELAY BEFORE SHUTDOWN SERVER] [int - TIME IN MINUTES TO DELAY BEFORE SHUTDOWN SERVER]
