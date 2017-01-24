@@ -1,5 +1,9 @@
 # Shutdown Linux for Power Outages
 
+## Prerequisite
+
+It is required that the server be connected to a nobreak
+
 ## Install
 
 ```sh
