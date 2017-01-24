@@ -11,16 +11,16 @@ $ sudo curl -L "https://raw.githubusercontent.com/00F100/nobreak-shutdown-linux/
 $ sudo chmod +x /usr/local/bin/nobreak
 ```
 
-## Configure on Crontab
-
-```sh
-*/2 * * * * root nobreak google.com 6 3 600 10
-```
-
 ## Usage
 
 ```sh
 $ nobreak [string - DOMAIN OR IP] [int - NUM OF PING CALLS] [int - NUM OF PINGS CALL ERROR LOG] [int - TIME IN SECONDS TO DELAY BEFORE SHUTDOWN SERVER] [int - TIME IN MINUTES TO DELAY BEFORE SHUTDOWN SERVER]
+```
+
+## Configure on Crontab
+
+```sh
+*/2 * * * * root nobreak google.com 6 3 600 10
 ```
 
 ## Example Sucess, has power!
