@@ -85,27 +85,28 @@ $ nobreak 192.168.1.2 6 3 600 10
 #### Logs
 ```sh
 $ cat /var/log/nobreak-fail.log
+-----------------------------------------------------------------------------------------------
 The power is gone away
-26/01/2017 22:30:13 FAIL (ping 192.168.1.254)
-PING 192.168.1.254 (192.168.1.254) 56(84) bytes of data.
+26/01/2017 22:30:13 FAIL (ping 192.168.1.252)
+PING 192.168.1.252 (192.168.1.252) 56(84) bytes of data.
 From 192.168.1.253 icmp_seq=1 Destination Host Unreachable
 From 192.168.1.253 icmp_seq=2 Destination Host Unreachable
 From 192.168.1.253 icmp_seq=3 Destination Host Unreachable
 
---- 192.168.1.254 ping statistics ---
-3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2016ms
+--- 192.168.1.252 ping statistics ---
+3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2014ms
 pipe 3
 -----------------------------------------------------------------------------------------------
 Sleep 10 minutes
 Try connect host...
 -----------------------------------------------------------------------------------------------
-PING 192.168.1.254 (192.168.1.254) 56(84) bytes of data.
+PING 192.168.1.252 (192.168.1.252) 56(84) bytes of data.
 From 192.168.1.253 icmp_seq=1 Destination Host Unreachable
 From 192.168.1.253 icmp_seq=2 Destination Host Unreachable
 From 192.168.1.253 icmp_seq=3 Destination Host Unreachable
 
---- 192.168.1.254 ping statistics ---
-3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2016ms
+--- 192.168.1.252 ping statistics ---
+3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2015ms
 pipe 3
 -----------------------------------------------------------------------------------------------
 The power do not return after 10 minutes, turn off server
