@@ -41,22 +41,52 @@ $ cat /var/log/nobreak.log
 7:64 bytes from vl-in-f101.1e100.net (74.125.141.101): icmp_seq=6 ttl=42 time=156 ms
 ```
 
-## Example Power Fail, shutdown!
+## Example Power Fail, shutdown! (External server)
 
 ```sh
 $ nobreak google.com 6 3 600 10
-A ENERGIA CAIU!
-SLEEP DE 10 MINUTOS
+The power is gone away
+Sleep 10 minnutes
+Try connect host...
+The power do not return after 10 minutes, turn off server
+```
+
+## Example Power Fail, shutdown! (Local network)
+
+```sh
+
+# POWER PLANT
+
+If power down, servers have nobreak, router no! The ping need stop and shutdown server!
+
+| POWER |
+	=> | NOBREAK |
+		=> | SERVER 1 |
+		=> | SERVER 2 |
+------------------------------------------------------
+| POWER |
+	=> | ROUTER |
+
+
+# NETWORK PLANT
+
+| Internet | => | ROUTER (192.168.1.1) |
+						=> | SERVER 1 (192.168.1.2) |
+						=> | SERVER 2 (192.168.1.3) |
+
+
+# ON SERVER 1... ping SERVER 2 ...
+$ nobreak 192.168.1.3 6 3 600 10
+
+# ON SERVER 2... ping SERVER 1 ...
+$ nobreak 192.168.1.2 6 3 600 10
 ```
 
 #### Logs
 ```sh
 $ cat /var/log/nobreak-fail.log
-A ENERGIA CAIU!
------------------------------------------------------------------------------------------------
-24/01/2017 03:54:01 - O SERVIDOR ANALISOU E DETECTOU QUEDA DE ENERGIA
-----------------
-24/01/2017 03:56:01 FAIL (ping 192.168.1.254)
+The power is gone away
+26/01/2017 22:30:13 FAIL (ping 192.168.1.254)
 PING 192.168.1.254 (192.168.1.254) 56(84) bytes of data.
 From 192.168.1.253 icmp_seq=1 Destination Host Unreachable
 From 192.168.1.253 icmp_seq=2 Destination Host Unreachable
@@ -65,8 +95,18 @@ From 192.168.1.253 icmp_seq=3 Destination Host Unreachable
 --- 192.168.1.254 ping statistics ---
 3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2016ms
 pipe 3
-A ENERGIA CAIU!
 -----------------------------------------------------------------------------------------------
-24/01/2017 03:56:01 - O SERVIDOR ANALISOU E DETECTOU QUEDA DE ENERGIA
-A LUZ NAO RETORNOU EM 10 MINUTOS, DESLIGANDO SERVIDOR
+Sleep 10 minutes
+Try connect host...
+-----------------------------------------------------------------------------------------------
+PING 192.168.1.254 (192.168.1.254) 56(84) bytes of data.
+From 192.168.1.253 icmp_seq=1 Destination Host Unreachable
+From 192.168.1.253 icmp_seq=2 Destination Host Unreachable
+From 192.168.1.253 icmp_seq=3 Destination Host Unreachable
+
+--- 192.168.1.254 ping statistics ---
+3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2016ms
+pipe 3
+-----------------------------------------------------------------------------------------------
+The power do not return after 10 minutes, turn off server
 ```
