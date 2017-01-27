@@ -38,6 +38,6 @@ then
     echo $MSG_LINE >> "$LOGFAIL"
     echo $MSG_POWER_OFF_CONFIRM
     echo $MSG_POWER_OFF_CONFIRM >> "$LOGFAIL"
-    # shutdown -r 1 "The server will reboot in 1 minute"
+    shutdown -r 1 "The server will reboot in 1 minute"
   fi
 fi
